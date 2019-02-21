@@ -25,7 +25,7 @@ class App extends Component {
     return (
       <React.Fragment>
         <Sidebar />
-        <LeafletMap data={this.state.data} asPoints={true} />
+        <LeafletMap data={this.state.data} />
       </React.Fragment>
     );
   }

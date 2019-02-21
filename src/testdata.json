@@ -4,9 +4,7 @@
     "properties": {
       "bikeId": 0,
       "time": "2019-02-13-12:12",
-      "data": {
-        "airQuality": 0.1
-      }
+      "airQuality": 0.1
     },
     "geometry": {
       "type": "Point",
@@ -18,9 +16,7 @@
     "properties": {
       "bikeId": 0,
       "time": "2019-02-13-12:12",
-      "data": {
-        "airQuality": 0.2
-      }
+      "airQuality": 0.2
     },
     "geometry": {
       "type": "Point",
@@ -32,9 +28,8 @@
     "properties": {
       "bikeId": 0,
       "time": "2019-02-13-12:12",
-      "data": {
-        "airQuality": 2
-      }
+
+      "airQuality": 2
     },
     "geometry": {
       "type": "Point",
@@ -46,9 +41,8 @@
     "properties": {
       "bikeId": 0,
       "time": "2019-02-13-12:12",
-      "data": {
-        "airQuality": 3
-      }
+
+      "airQuality": 3
     },
     "geometry": {
       "type": "Point",
@@ -60,9 +54,8 @@
     "properties": {
       "bikeId": 0,
       "time": "2019-02-13-12:12",
-      "data": {
-        "airQuality": 0.5
-      }
+
+      "airQuality": 0.5
     },
     "geometry": {
       "type": "Point",
@@ -74,9 +67,8 @@
     "properties": {
       "bikeId": 0,
       "time": "2019-02-13-12:12",
-      "data": {
-        "airQuality": 5
-      }
+
+      "airQuality": 5
     },
     "geometry": {
       "type": "Point",
@@ -88,9 +80,8 @@
     "properties": {
       "bikeId": 0,
       "time": "2019-02-13-12:12",
-      "data": {
-        "airQuality": 3
-      }
+
+      "airQuality": 3
     },
     "geometry": {
       "type": "Point",
@@ -102,9 +93,8 @@
     "properties": {
       "bikeId": 0,
       "time": "2019-02-13-12:12",
-      "data": {
-        "airQuality": 0.8
-      }
+
+      "airQuality": 0.8
     },
     "geometry": {
       "type": "Point",
@@ -116,9 +106,8 @@
     "properties": {
       "bikeId": 0,
       "time": "2019-02-13-12:12",
-      "data": {
-        "airQuality": 1
-      }
+
+      "airQuality": 1
     },
     "geometry": {
       "type": "Point",
@@ -130,9 +119,8 @@
     "properties": {
       "bikeId": 0,
       "time": "2019-02-13-12:12",
-      "data": {
-        "airQuality": 4
-      }
+
+      "airQuality": 4
     },
     "geometry": {
       "type": "Point",
@@ -144,9 +132,8 @@
     "properties": {
       "bikeId": 1,
       "time": "2019-02-12-12:12",
-      "data": {
-        "airQuality": 0.2
-      }
+
+      "airQuality": 0.2
     },
     "geometry": {
       "type": "Point",
@@ -158,9 +145,8 @@
     "properties": {
       "bikeId": 1,
       "time": "2019-02-12-12:12",
-      "data": {
-        "airQuality": 0.4
-      }
+
+      "airQuality": 0.4
     },
     "geometry": {
       "type": "Point",
@@ -172,9 +158,8 @@
     "properties": {
       "bikeId": 1,
       "time": "2019-02-12-12:12",
-      "data": {
-        "airQuality": 0.7
-      }
+
+      "airQuality": 0.7
     },
     "geometry": {
       "type": "Point",
@@ -186,9 +171,7 @@
     "properties": {
       "bikeId": 1,
       "time": "2019-02-12-12:12",
-      "data": {
-        "airQuality": 10
-      }
+      "airQuality": 10
     },
     "geometry": {
       "type": "Point",
@@ -200,9 +183,7 @@
     "properties": {
       "bikeId": 1,
       "time": "2019-02-12-12:12",
-      "data": {
-        "airQuality": 12
-      }
+      "airQuality": 12
     },
     "geometry": {
       "type": "Point",
@@ -214,9 +195,7 @@
     "properties": {
       "bikeId": 1,
       "time": "2019-02-12-12:12",
-      "data": {
-        "airQuality": 11
-      }
+      "airQuality": 11
     },
     "geometry": {
       "type": "Point",
@@ -228,9 +207,7 @@
     "properties": {
       "bikeId": 1,
       "time": "2019-02-12-12:12",
-      "data": {
-        "airQuality": 9
-      }
+      "airQuality": 9
     },
     "geometry": {
       "type": "Point",
@@ -242,9 +219,7 @@
     "properties": {
       "bikeId": 1,
       "time": "2019-02-12-12:12",
-      "data": {
-        "airQuality": 5
-      }
+      "airQuality": 5
     },
     "geometry": {
       "type": "Point",
@@ -256,9 +231,7 @@
     "properties": {
       "bikeId": 1,
       "time": "2019-02-12-12:12",
-      "data": {
-        "airQuality": 14
-      }
+      "airQuality": 14
     },
     "geometry": {
       "type": "Point",
@@ -270,9 +243,7 @@
     "properties": {
       "bikeId": 1,
       "time": "2019-02-12-12:12",
-      "data": {
-        "airQuality": 3
-      }
+      "airQuality": 3
     },
     "geometry": {
       "type": "Point",
@@ -284,9 +255,7 @@
     "properties": {
       "bikeId": 1,
       "time": "2019-02-12-12:12",
-      "data": {
-        "airQuality": 6
-      }
+      "airQuality": 6
     },
     "geometry": {
       "type": "Point",
@@ -298,9 +267,7 @@
     "properties": {
       "bikeId": 1,
       "time": "2019-02-12-12:12",
-      "data": {
-        "airQuality": 0.2
-      }
+      "airQuality": 0.2
     },
     "geometry": {
       "type": "Point",
