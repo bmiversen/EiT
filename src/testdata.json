@@ -1,277 +1,280 @@
-[
-  {
-    "type": "Feature",
-    "properties": {
-      "bikeId": 0,
-      "time": "2019-02-13-12:12",
-      "airQuality": 0.1
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "bikeId": 0,
+        "time": "2019-02-13-12:12",
+        "airQuality": 0.1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.395340919494629, 63.420896242204996]
+      }
     },
-    "geometry": {
-      "type": "Point",
-      "coordinates": [10.395340919494629, 63.420896242204996]
-    }
-  },
-  {
-    "type": "Feature",
-    "properties": {
-      "bikeId": 0,
-      "time": "2019-02-13-12:12",
-      "airQuality": 0.2
+    {
+      "type": "Feature",
+      "properties": {
+        "bikeId": 0,
+        "time": "2019-02-13-12:12",
+        "airQuality": 0.2
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.395770072937012, 63.420089757814424]
+      }
     },
-    "geometry": {
-      "type": "Point",
-      "coordinates": [10.395770072937012, 63.420089757814424]
-    }
-  },
-  {
-    "type": "Feature",
-    "properties": {
-      "bikeId": 0,
-      "time": "2019-02-13-12:12",
+    {
+      "type": "Feature",
+      "properties": {
+        "bikeId": 0,
+        "time": "2019-02-13-12:12",
 
-      "airQuality": 2
+        "airQuality": 2
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.396027565002441, 63.41941767015649]
+      }
     },
-    "geometry": {
-      "type": "Point",
-      "coordinates": [10.396027565002441, 63.41941767015649]
-    }
-  },
-  {
-    "type": "Feature",
-    "properties": {
-      "bikeId": 0,
-      "time": "2019-02-13-12:12",
+    {
+      "type": "Feature",
+      "properties": {
+        "bikeId": 0,
+        "time": "2019-02-13-12:12",
 
-      "airQuality": 3
+        "airQuality": 3
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.396413803100586, 63.41872636355529]
+      }
     },
-    "geometry": {
-      "type": "Point",
-      "coordinates": [10.396413803100586, 63.41872636355529]
-    }
-  },
-  {
-    "type": "Feature",
-    "properties": {
-      "bikeId": 0,
-      "time": "2019-02-13-12:12",
+    {
+      "type": "Feature",
+      "properties": {
+        "bikeId": 0,
+        "time": "2019-02-13-12:12",
 
-      "airQuality": 0.5
+        "airQuality": 0.5
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.396757125854492, 63.418131058401435]
+      }
     },
-    "geometry": {
-      "type": "Point",
-      "coordinates": [10.396757125854492, 63.418131058401435]
-    }
-  },
-  {
-    "type": "Feature",
-    "properties": {
-      "bikeId": 0,
-      "time": "2019-02-13-12:12",
+    {
+      "type": "Feature",
+      "properties": {
+        "bikeId": 0,
+        "time": "2019-02-13-12:12",
 
-      "airQuality": 5
+        "airQuality": 5
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.396971702575684, 63.417554944869664]
+      }
     },
-    "geometry": {
-      "type": "Point",
-      "coordinates": [10.396971702575684, 63.417554944869664]
-    }
-  },
-  {
-    "type": "Feature",
-    "properties": {
-      "bikeId": 0,
-      "time": "2019-02-13-12:12",
+    {
+      "type": "Feature",
+      "properties": {
+        "bikeId": 0,
+        "time": "2019-02-13-12:12",
 
-      "airQuality": 3
+        "airQuality": 3
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.394268035888672, 63.42104985570689]
+      }
     },
-    "geometry": {
-      "type": "Point",
-      "coordinates": [10.394268035888672, 63.42104985570689]
-    }
-  },
-  {
-    "type": "Feature",
-    "properties": {
-      "bikeId": 0,
-      "time": "2019-02-13-12:12",
+    {
+      "type": "Feature",
+      "properties": {
+        "bikeId": 0,
+        "time": "2019-02-13-12:12",
 
-      "airQuality": 0.8
+        "airQuality": 0.8
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.393409729003906, 63.42104985570689]
+      }
     },
-    "geometry": {
-      "type": "Point",
-      "coordinates": [10.393409729003906, 63.42104985570689]
-    }
-  },
-  {
-    "type": "Feature",
-    "properties": {
-      "bikeId": 0,
-      "time": "2019-02-13-12:12",
+    {
+      "type": "Feature",
+      "properties": {
+        "bikeId": 0,
+        "time": "2019-02-13-12:12",
 
-      "airQuality": 1
+        "airQuality": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.392293930053711, 63.420896242204996]
+      }
     },
-    "geometry": {
-      "type": "Point",
-      "coordinates": [10.392293930053711, 63.420896242204996]
-    }
-  },
-  {
-    "type": "Feature",
-    "properties": {
-      "bikeId": 0,
-      "time": "2019-02-13-12:12",
+    {
+      "type": "Feature",
+      "properties": {
+        "bikeId": 0,
+        "time": "2019-02-13-12:12",
 
-      "airQuality": 4
+        "airQuality": 4
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.391435623168945, 63.4208578387009]
+      }
     },
-    "geometry": {
-      "type": "Point",
-      "coordinates": [10.391435623168945, 63.4208578387009]
-    }
-  },
-  {
-    "type": "Feature",
-    "properties": {
-      "bikeId": 1,
-      "time": "2019-02-12-12:12",
+    {
+      "type": "Feature",
+      "properties": {
+        "bikeId": 1,
+        "time": "2019-02-12-12:12",
 
-      "airQuality": 0.2
+        "airQuality": 0.2
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.394482612609863, 63.42281635181272]
+      }
     },
-    "geometry": {
-      "type": "Point",
-      "coordinates": [10.394482612609863, 63.42281635181272]
-    }
-  },
-  {
-    "type": "Feature",
-    "properties": {
-      "bikeId": 1,
-      "time": "2019-02-12-12:12",
+    {
+      "type": "Feature",
+      "properties": {
+        "bikeId": 1,
+        "time": "2019-02-12-12:12",
 
-      "airQuality": 0.4
+        "airQuality": 0.4
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.395684242248535, 63.42270114886336]
+      }
     },
-    "geometry": {
-      "type": "Point",
-      "coordinates": [10.395684242248535, 63.42270114886336]
-    }
-  },
-  {
-    "type": "Feature",
-    "properties": {
-      "bikeId": 1,
-      "time": "2019-02-12-12:12",
+    {
+      "type": "Feature",
+      "properties": {
+        "bikeId": 1,
+        "time": "2019-02-12-12:12",
 
-      "airQuality": 0.7
+        "airQuality": 0.7
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.396714210510254, 63.422528343571095]
+      }
     },
-    "geometry": {
-      "type": "Point",
-      "coordinates": [10.396714210510254, 63.422528343571095]
-    }
-  },
-  {
-    "type": "Feature",
-    "properties": {
-      "bikeId": 1,
-      "time": "2019-02-12-12:12",
-      "airQuality": 10
+    {
+      "type": "Feature",
+      "properties": {
+        "bikeId": 1,
+        "time": "2019-02-12-12:12",
+        "airQuality": 10
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.397615432739258, 63.42239393873466]
+      }
     },
-    "geometry": {
-      "type": "Point",
-      "coordinates": [10.397615432739258, 63.42239393873466]
-    }
-  },
-  {
-    "type": "Feature",
-    "properties": {
-      "bikeId": 1,
-      "time": "2019-02-12-12:12",
-      "airQuality": 12
+    {
+      "type": "Feature",
+      "properties": {
+        "bikeId": 1,
+        "time": "2019-02-12-12:12",
+        "airQuality": 12
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.398344993591309, 63.422259533267955]
+      }
     },
-    "geometry": {
-      "type": "Point",
-      "coordinates": [10.398344993591309, 63.422259533267955]
-    }
-  },
-  {
-    "type": "Feature",
-    "properties": {
-      "bikeId": 1,
-      "time": "2019-02-12-12:12",
-      "airQuality": 11
+    {
+      "type": "Feature",
+      "properties": {
+        "bikeId": 1,
+        "time": "2019-02-12-12:12",
+        "airQuality": 11
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.399160385131836, 63.42204832340413]
+      }
     },
-    "geometry": {
-      "type": "Point",
-      "coordinates": [10.399160385131836, 63.42204832340413]
-    }
-  },
-  {
-    "type": "Feature",
-    "properties": {
-      "bikeId": 1,
-      "time": "2019-02-12-12:12",
-      "airQuality": 9
+    {
+      "type": "Feature",
+      "properties": {
+        "bikeId": 1,
+        "time": "2019-02-12-12:12",
+        "airQuality": 9
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.400276184082031, 63.42177950859928]
+      }
     },
-    "geometry": {
-      "type": "Point",
-      "coordinates": [10.400276184082031, 63.42177950859928]
-    }
-  },
-  {
-    "type": "Feature",
-    "properties": {
-      "bikeId": 1,
-      "time": "2019-02-12-12:12",
-      "airQuality": 5
+    {
+      "type": "Feature",
+      "properties": {
+        "bikeId": 1,
+        "time": "2019-02-12-12:12",
+        "airQuality": 5
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.394525527954102, 63.422432340180805]
+      }
     },
-    "geometry": {
-      "type": "Point",
-      "coordinates": [10.394525527954102, 63.422432340180805]
-    }
-  },
-  {
-    "type": "Feature",
-    "properties": {
-      "bikeId": 1,
-      "time": "2019-02-12-12:12",
-      "airQuality": 14
+    {
+      "type": "Feature",
+      "properties": {
+        "bikeId": 1,
+        "time": "2019-02-12-12:12",
+        "airQuality": 14
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.394225120544434, 63.423545959739776]
+      }
     },
-    "geometry": {
-      "type": "Point",
-      "coordinates": [10.394225120544434, 63.423545959739776]
-    }
-  },
-  {
-    "type": "Feature",
-    "properties": {
-      "bikeId": 1,
-      "time": "2019-02-12-12:12",
-      "airQuality": 3
+    {
+      "type": "Feature",
+      "properties": {
+        "bikeId": 1,
+        "time": "2019-02-12-12:12",
+        "airQuality": 3
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.393967628479002, 63.42423715011807]
+      }
     },
-    "geometry": {
-      "type": "Point",
-      "coordinates": [10.393967628479002, 63.42423715011807]
-    }
-  },
-  {
-    "type": "Feature",
-    "properties": {
-      "bikeId": 1,
-      "time": "2019-02-12-12:12",
-      "airQuality": 6
+    {
+      "type": "Feature",
+      "properties": {
+        "bikeId": 1,
+        "time": "2019-02-12-12:12",
+        "airQuality": 6
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.393881797790527, 63.4248707266556]
+      }
     },
-    "geometry": {
-      "type": "Point",
-      "coordinates": [10.393881797790527, 63.4248707266556]
+    {
+      "type": "Feature",
+      "properties": {
+        "bikeId": 1,
+        "time": "2019-02-12-12:12",
+        "airQuality": 0.2
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.401091575622559, 63.42166430148263]
+      }
     }
-  },
-  {
-    "type": "Feature",
-    "properties": {
-      "bikeId": 1,
-      "time": "2019-02-12-12:12",
-      "airQuality": 0.2
-    },
-    "geometry": {
-      "type": "Point",
-      "coordinates": [10.401091575622559, 63.42166430148263]
-    }
-  }
-]
+  ]
+}

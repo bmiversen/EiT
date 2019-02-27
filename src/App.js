@@ -3,11 +3,12 @@ import LeafletMap from "./components/map";
 import Sidebar from "./components/sidebar";
 import "./App.css";
 import testData from "./testdata.json";
+import { sensorTypes } from "./components/util/sensors";
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { data: [] };
+    this.state = { data: [], dataType: null, gpsPoints: true };
   }
   componentDidMount() {
     this.readData(JSON.stringify(testData));
@@ -16,7 +17,8 @@ class App extends Component {
   readData = layers => {
     let data = JSON.parse(layers);
     this.setState({
-      data: data
+      data: data.features,
+      dataType: sensorTypes.airQuality
     });
   };
 
@@ -25,7 +27,11 @@ class App extends Component {
     return (
       <React.Fragment>
         <Sidebar />
-        <LeafletMap data={this.state.data} />
+        <LeafletMap
+          data={this.state.data}
+          dataType={this.state.dataType}
+          gpsPoints={this.state.gpsPoints}
+        />
       </React.Fragment>
     );
   }

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import "./css/map.css";
+import { getColor } from "./util/sensors";
 
 class LeafletMap extends Component {
   constructor(props) {
@@ -17,7 +18,7 @@ class LeafletMap extends Component {
 TODO:
 Clustering of points when zooming
 Use featuregroups for points and polygons
-
+Add legend describing the map
 */
 
   /**
@@ -25,6 +26,8 @@ Use featuregroups for points and polygons
    */
   componentDidMount() {
     this.map = this.createMap(this.state.mapid);
+    //this.markers = L.markerClusterGroup();
+    //this.map.addLayer(this.markers);
     //this.featuregroup = L.featureGroup();
     //this.featuregroup.addTo(this.map);
 
@@ -52,9 +55,14 @@ Use featuregroups for points and polygons
    * When the props are updated
    */
   componentDidUpdate() {
+    this.removeAllLayers();
     this.props.data.forEach(feature => {
       let leaflayer = this.getGeoJSONFeature(feature);
-      //TODO: Could use featuregroup here instead
+      if (this.props.gpsPoints) {
+        //leaflayer.addTo(this.markers);
+      } else {
+        //TODO: Could use featuregroup here instead
+      }
       leaflayer.addTo(this.map);
     });
   }
@@ -63,7 +71,7 @@ Use featuregroups for points and polygons
    * Removes all points from the map
    */
   removeAllLayers = () => {
-    return;
+    //this.markers.clearLayers();
   };
 
   /**
@@ -79,18 +87,21 @@ Use featuregroups for points and polygons
    * Converts a geojson point to a circlemarker
    */
   pointToLayer = (feature, latlng) => {
-    return L.circleMarker(latlng, this.getCircleMarkerOptions(feature));
+    return L.circleMarker(
+      latlng,
+      this.getCircleMarkerOptions(this.props.dataType, feature)
+    );
   };
 
   /**
    * Describes how the circle will look
    */
-  getCircleMarkerOptions = feature => {
-    const color = this.getMarkerColor(feature.properties);
+  getCircleMarkerOptions = (dataType, feature) => {
+    const color = getColor(dataType, feature.properties[dataType]);
     return {
       radius: 8,
       fillColor: color,
-      color: color,
+      color: "#d3d3d3",
       weight: 1,
       opacity: 1,
       fillOpacity: 0.8
@@ -98,27 +109,11 @@ Use featuregroups for points and polygons
   };
 
   /**
-   * Returns color corresponding to the air quality
+   * Popup describing each feature on the map. Contains time and the filtered datatype
    */
-  getMarkerColor = properties => {
-    const airQuality = properties.airQuality;
-    if (airQuality < 50) {
-      return "#00ff00";
-    } else if (airQuality < 100) {
-      return "#ffff00";
-    } else if (airQuality < 150) {
-      return "#ffa500";
-    } else if (airQuality < 200) {
-      return "#ff0000";
-    } else if (airQuality < 300) {
-      return "#800080";
-    } else if (airQuality > 300) {
-      return "#660000";
-    }
-  };
-  //TODO: Should only show the property the user is filtering by
   createPopupText = properties => {
-    return `Time: ${properties.time}\nAir quality: ${properties.airQuality}`;
+    return `Time: ${properties.time}\n 
+    ${this.props.dataType}: ${properties[this.props.dataType]}`;
   };
 
   /**
