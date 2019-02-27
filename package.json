@@ -6,7 +6,8 @@
     "leaflet": "^1.4.0",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
-    "react-scripts": "2.1.5"
+    "react-scripts": "2.1.5",
+    "request": "2.81.0"
   },
   "scripts": {
     "start": "react-scripts start",
