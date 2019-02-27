@@ -1,21 +1,39 @@
 import React, { Component } from "react";
 import LeafletMap from "./components/map";
-import Sidebar from "./components/sidebar";
+import SidebarComponent from "./components/sidebar";
 import "./App.css";
-import testData from "./testdata.json";
 import { sensorTypes } from "./components/util/sensors";
 
 class App extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      form: {
+        date: null,
+        filterAirQuality: false
+      },
+      data: []
+    };
     this.state = { data: [], dataType: null, gpsPoints: true };
   }
   componentDidMount() {
-    this.readData(JSON.stringify(testData));
+    const request = require("request");
+    request(
+      "http://52.164.189.113/api/datapoints/",
+      (error, response, body) => {
+        const data = JSON.parse(body).features
+        this.setState({ data: data});
+      }
+    );
   }
 
+  handleSubmit = (event, form) => {
+    event.preventDefault();
+    this.setState({ form: form });
+  };
+
   readData = layers => {
-    let data = JSON.parse(layers);
+    let data = layers;
     this.setState({
       data: data.features,
       dataType: sensorTypes.airQuality
@@ -23,10 +41,9 @@ class App extends Component {
   };
 
   render() {
-    console.log(this.state.data);
     return (
       <React.Fragment>
-        <Sidebar />
+        <SidebarComponent handleSubmit={this.handleSubmit} />
         <LeafletMap
           data={this.state.data}
           dataType={this.state.dataType}
