@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import LeafletMap from "./components/map";
 import SidebarComponent from "./components/sidebar";
 import "./App.css";
-import testData from "./testdata.json";
+import { sensorTypes } from "./components/util/sensors";
 
 class App extends Component {
   constructor(props) {
@@ -14,17 +14,17 @@ class App extends Component {
       },
       data: []
     };
+    this.state = { data: [], dataType: null, gpsPoints: true };
   }
   componentDidMount() {
     const request = require("request");
-    request("http://52.164.189.113/api/datapoints/", (
-      error, response,  body) => {
-      console.log("error:", error); // Print the error if one occurred
-      console.log("statusCode:", response && response.statusCode); // Print the response status code if a response was received
-      console.log("body:", body); // Print the HTML for the Google homepage.
-      this.setState({data: body.features})
-      console.log(this.state.data)
-    });
+    request(
+      "http://52.164.189.113/api/datapoints/",
+      (error, response, body) => {
+        const data = JSON.parse(body).features
+        this.setState({ data: data});
+      }
+    );
   }
 
   handleSubmit = (event, form) => {
@@ -35,16 +35,20 @@ class App extends Component {
   readData = layers => {
     let data = layers;
     this.setState({
-      data: data
+      data: data.features,
+      dataType: sensorTypes.airQuality
     });
   };
 
   render() {
-    console.log(this.state.data);
     return (
       <React.Fragment>
         <SidebarComponent handleSubmit={this.handleSubmit} />
-        <LeafletMap data={this.state.data} asPoints={true} />
+        <LeafletMap
+          data={this.state.data}
+          dataType={this.state.dataType}
+          gpsPoints={this.state.gpsPoints}
+        />
       </React.Fragment>
     );
   }

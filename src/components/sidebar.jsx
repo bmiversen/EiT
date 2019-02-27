@@ -15,16 +15,12 @@ class SidebarComponent extends React.Component {
     const form = this.state.form;
     form.date = event.target.value;
     this.setState({ form: form });
-    console.log("Form changed, new values:")
-    console.log(this.state.form)
   };
 
   handleCheckbox = () => {
     const form = this.state.form;
     form.filterAirQuality = !form.filterAirQuality;
     this.setState({form: form})
-    console.log("Filter air quality?")
-    console.log(this.state.form.filterAirQuality)
   }
 
   render() {
