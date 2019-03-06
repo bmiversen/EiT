@@ -8,14 +8,18 @@ import { sensorTypes } from "./components/util/sensors";
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { data: [], dataType: null, gpsPoints: true };
+    this.state = {
+      data: [],
+      dataType: sensorTypes.airQuality,
+      gpsPoints: true
+    };
   }
   componentDidMount() {
-    this.readData(JSON.stringify(testData));
+    this.readData(testData);
   }
 
   readData = layers => {
-    let data = JSON.parse(layers);
+    let data = layers;
     this.setState({
       data: data.features,
       dataType: sensorTypes.airQuality

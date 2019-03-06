@@ -19,15 +19,24 @@ export function getColor(sensorType, value) {
  * Colors for air quality
  */
 function colorAirQuality(airQuality) {
-  return airQuality < 50
+  return airQuality <= 50
     ? "#00ff00"
-    : airQuality < 100
+    : airQuality <= 100
     ? "#ffff00"
-    : airQuality < 150
+    : airQuality <= 150
     ? "#ffa500"
-    : airQuality < 200
+    : airQuality <= 200
     ? "#ff0000"
-    : airQuality < 300
+    : airQuality <= 300
     ? "#800080"
     : "#660000";
 }
+
+/**
+ * Scale of values. First is minimum value.
+ * Rest of values are roof for respective color section.
+ * Final value/color area goes to infinity.
+ */
+export const dataTypeIntervals = {
+  airQuality: [0, 50, 100, 150, 200, 300]
+};
