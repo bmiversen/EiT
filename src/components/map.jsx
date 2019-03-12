@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import "./css/map.css";
-import { getColor, dataTypeIntervals } from "./util/sensors";
+import { getColor, sensorColors } from "./util/sensors";
 
 class LeafletMap extends Component {
   constructor(props) {
@@ -21,8 +21,8 @@ class LeafletMap extends Component {
    */
   componentDidMount() {
     this.map = this.createMap(this.state.mapid);
-    this.map.dataType = this.props.dataType;
-    this.map.dataTypeInterval = dataTypeIntervals[this.props.dataType];
+    this.map.sensorType = this.props.sensorType;
+    this.map.sensorInterval = sensorColors[this.props.sensorType].interval;
 
     this.featureGroup = L.featureGroup();
     this.featureGroup.addTo(this.map);
@@ -71,17 +71,17 @@ class LeafletMap extends Component {
     let legend = L.control({ position: "bottomright" });
     legend.onAdd = map => {
       const div = L.DomUtil.create("div", "info legend");
-      const intervals = map.dataTypeInterval;
+      const interval = map.sensorInterval;
 
-      div.innerHTML += "<strong>" + this.map.dataType + "</strong><br>";
-      //For intervals, write interval limits and corresponding color
-      for (let i = 0; i < intervals.length; i++) {
+      div.innerHTML += "<strong>" + this.map.sensorType + "</strong><br>";
+      //For the intervals, write interval limits and corresponding color
+      for (let i = 0; i < interval.length; i++) {
         div.innerHTML +=
           '<i style="background:' +
-          getColor(map.dataType, intervals[i + 1]) +
+          getColor(map.sensorType, interval[i + 1]) +
           '"></i>' +
-          intervals[i] +
-          (intervals[i + 1] ? "&ndash;" + intervals[i + 1] + "<br>" : "+");
+          interval[i] +
+          (interval[i + 1] ? "&ndash;" + interval[i + 1] + "<br>" : "+");
       }
       return div;
     };
@@ -112,15 +112,15 @@ class LeafletMap extends Component {
   pointToLayer = (feature, latlng) => {
     return L.circle(
       latlng,
-      this.getCircleMarkerOptions(this.props.dataType, feature)
+      this.getCircleMarkerOptions(this.props.sensorType, feature)
     );
   };
 
   /**
    * Describes how the circle will look
    */
-  getCircleMarkerOptions = (dataType, feature) => {
-    const color = getColor(dataType, feature.properties[dataType]);
+  getCircleMarkerOptions = (sensorType, feature) => {
+    const color = getColor(sensorType, feature.properties[sensorType]);
     return {
       radius: 15,
       fillColor: color,
@@ -132,11 +132,11 @@ class LeafletMap extends Component {
   };
 
   /**
-   * Popup describing each feature on the map. Contains time and the filtered datatype
+   * Popup describing each feature on the map. Contains time and the filtered sensorType
    */
   createPopupText = properties => {
     return `Time: ${properties.time}\n 
-    ${this.props.dataType}: ${properties[this.props.dataType]}`;
+    ${this.props.sensorType}: ${properties[this.props.sensorType]}`;
   };
 
   /**

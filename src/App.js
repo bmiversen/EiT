@@ -9,7 +9,7 @@ class App extends Component {
     super(props);
     this.state = {
       data: [],
-      dataType: sensorTypes.airQuality,
+      sensorType: sensorTypes.airQuality,
       form: {
         date: null,
         filterAirQuality: false
@@ -37,7 +37,7 @@ class App extends Component {
     let data = layers;
     this.setState({
       data: data.features,
-      dataType: sensorTypes.airQuality
+      sensorType: sensorTypes.airQuality
     });
   };
 
@@ -45,7 +45,7 @@ class App extends Component {
     return (
       <React.Fragment>
         <SidebarComponent handleSubmit={this.handleSubmit} />
-        <LeafletMap data={this.state.data} dataType={this.state.dataType} />
+        <LeafletMap data={this.state.data} sensorType={this.state.sensorType} />
       </React.Fragment>
     );
   }
