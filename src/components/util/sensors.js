@@ -7,27 +7,28 @@ export const sensorTypes = {
 };
 
 /**
- * Checks what sensor type we use and calls the relevant function
+ * Returns the color corresponding to the sensor type and value
  */
 export function getColor(sensorType, value) {
-  return sensorType === sensorTypes.airQuality
-    ? colorAirQuality(value)
-    : "#000000";
+  const sensor = sensorColors[sensorType];
+  for (let i = 0; i < sensor.interval.length; i++) {
+    if (value <= sensor.interval[i + 1]) {
+      return sensor.colors[i];
+    }
+  }
+  //Returns either the color of the final interval, or black if there are no colors.
+  return sensor ? sensor.colors[sensor.interval.length - 1] : "#000000";
 }
 
 /**
- * Colors for air quality
+ * Describes the color scaling for a sensor type.
+ * "interval" contains lower bound, and the upper bound for each color interval.
+ * The final interval contains all values higher than the last value.
+ * "colors" describes which color each interval has.
  */
-function colorAirQuality(airQuality) {
-  return airQuality < 50
-    ? "#00ff00"
-    : airQuality < 100
-    ? "#ffff00"
-    : airQuality < 150
-    ? "#ffa500"
-    : airQuality < 200
-    ? "#ff0000"
-    : airQuality < 300
-    ? "#800080"
-    : "#660000";
-}
+export const sensorColors = {
+  airQuality: {
+    interval: [0, 50, 100, 150, 200, 300],
+    colors: ["#00ff00", "#ffff00", "#ffa500", "#ff0000", "#800080", "#660000"]
+  }
+};

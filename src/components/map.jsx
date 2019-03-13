@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import "./css/map.css";
-import { getColor } from "./util/sensors";
+import { getColor, sensorColors } from "./util/sensors";
 
 class LeafletMap extends Component {
   constructor(props) {
@@ -14,22 +14,21 @@ class LeafletMap extends Component {
     };
   }
 
-  /*
-TODO:
-Clustering of points when zooming
-Use featuregroups for points and polygons
-Add legend describing the map
-*/
-
   /**
-   * Instantiates the map and the featuregroup containing all layers
+   * Instantiates the map,
+   * a featuregroup containing all layers,
+   * a legend describing the color scheme.
    */
   componentDidMount() {
     this.map = this.createMap(this.state.mapid);
-    //this.markers = L.markerClusterGroup();
-    //this.map.addLayer(this.markers);
-    //this.featuregroup = L.featureGroup();
-    //this.featuregroup.addTo(this.map);
+    this.map.sensorType = this.props.sensorType;
+    this.map.sensorInterval = sensorColors[this.props.sensorType].interval;
+
+    this.featureGroup = L.featureGroup();
+    this.featureGroup.addTo(this.map);
+
+    this.mapLegend = this.createLegend();
+    this.mapLegend.addTo(this.map);
 
     //If this is not included, half the map is shown as grey until the window is resized.
     this.map.invalidateSize();
@@ -37,7 +36,7 @@ Add legend describing the map
 
   /**
    * Leaflet map constructor with Kartverket basemap
-   * @param mapid, id of <div> the map will be placed in
+   * @param mapid, id of <div> the map will be placed in.
    */
   createMap(mapid) {
     const map = L.map(mapid).setView(this.state.center, this.state.zoom);
@@ -52,26 +51,49 @@ Add legend describing the map
   }
 
   /**
-   * When the props are updated
+   * When new props are given.
+   * Replaces points and legend with new ones with correct colors.
    */
   componentDidUpdate() {
     this.removeAllLayers();
     this.props.data.forEach(feature => {
       let leaflayer = this.getGeoJSONFeature(feature);
-      if (this.props.gpsPoints) {
-        //leaflayer.addTo(this.markers);
-      } else {
-        //TODO: Could use featuregroup here instead
-      }
-      leaflayer.addTo(this.map);
+      this.featureGroup.addLayer(leaflayer);
     });
+    this.mapLegend = this.createLegend();
+    this.mapLegend.addTo(this.map);
   }
 
   /**
-   * Removes all points from the map
+   * Create legend describing the color scheme for the given sensortype.
+   */
+  createLegend = () => {
+    let legend = L.control({ position: "bottomright" });
+    legend.onAdd = map => {
+      const div = L.DomUtil.create("div", "info legend");
+      const interval = map.sensorInterval;
+
+      div.innerHTML += "<strong>" + this.map.sensorType + "</strong><br>";
+      //For the intervals, write interval limits and corresponding color
+      for (let i = 0; i < interval.length; i++) {
+        div.innerHTML +=
+          '<i style="background:' +
+          getColor(map.sensorType, interval[i + 1]) +
+          '"></i>' +
+          interval[i] +
+          (interval[i + 1] ? "&ndash;" + interval[i + 1] + "<br>" : "+");
+      }
+      return div;
+    };
+    return legend;
+  };
+
+  /**
+   * Removes all points and the legend from the map.
    */
   removeAllLayers = () => {
-    //this.markers.clearLayers();
+    this.featureGroup.clearLayers();
+    this.map.removeControl(this.mapLegend);
   };
 
   /**
@@ -83,23 +105,24 @@ Add legend describing the map
       onEachFeature: this.onEachFeature
     });
   };
+
   /**
    * Converts a geojson point to a circlemarker
    */
   pointToLayer = (feature, latlng) => {
-    return L.circleMarker(
+    return L.circle(
       latlng,
-      this.getCircleMarkerOptions(this.props.dataType, feature)
+      this.getCircleMarkerOptions(this.props.sensorType, feature)
     );
   };
 
   /**
    * Describes how the circle will look
    */
-  getCircleMarkerOptions = (dataType, feature) => {
-    const color = getColor(dataType, feature.properties[dataType]);
+  getCircleMarkerOptions = (sensorType, feature) => {
+    const color = getColor(sensorType, feature.properties[sensorType]);
     return {
-      radius: 8,
+      radius: 15,
       fillColor: color,
       color: "#d3d3d3",
       weight: 1,
@@ -109,11 +132,11 @@ Add legend describing the map
   };
 
   /**
-   * Popup describing each feature on the map. Contains time and the filtered datatype
+   * Popup describing each feature on the map. Contains time and the filtered sensorType
    */
   createPopupText = properties => {
     return `Time: ${properties.time}\n 
-    ${this.props.dataType}: ${properties[this.props.dataType]}`;
+    ${this.props.sensorType}: ${properties[this.props.sensorType]}`;
   };
 
   /**

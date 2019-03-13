@@ -2,3 +2,14 @@
   height: 100vh;
   z-index: 0;
 }
+.legend {
+  line-height: 18px;
+  background-color: white;
+  z-index: 1;
+}
+.legend i {
+  width: 18px;
+  height: 18px;
+  float: left;
+  margin-right: 8px;
+}
