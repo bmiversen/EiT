@@ -27,8 +27,8 @@ class LeafletMap extends Component {
     this.featureGroup = L.featureGroup();
     this.featureGroup.addTo(this.map);
 
-    this.mapLegend = this.createLegend();
-    this.mapLegend.addTo(this.map);
+    //this.mapLegend = this.createLegend();
+    //this.mapLegend.addTo(this.map);
 
     //If this is not included, half the map is shown as grey until the window is resized.
     this.map.invalidateSize();
@@ -60,8 +60,8 @@ class LeafletMap extends Component {
       let leaflayer = this.getGeoJSONFeature(feature);
       this.featureGroup.addLayer(leaflayer);
     });
-    this.mapLegend = this.createLegend();
-    this.mapLegend.addTo(this.map);
+    //this.mapLegend = this.createLegend();
+    //this.mapLegend.addTo(this.map);
   }
 
   /**
@@ -93,7 +93,7 @@ class LeafletMap extends Component {
    */
   removeAllLayers = () => {
     this.featureGroup.clearLayers();
-    this.map.removeControl(this.mapLegend);
+    //this.map.removeControl(this.mapLegend);
   };
 
   /**
