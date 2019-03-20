@@ -1,6 +1,7 @@
 import React, { Component } from "react";
+import MapLegend from "./maplegend";
 
-class SidebarComponent extends React.Component {
+class SidebarComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -20,8 +21,8 @@ class SidebarComponent extends React.Component {
   handleCheckbox = () => {
     const form = this.state.form;
     form.filterAirQuality = !form.filterAirQuality;
-    this.setState({form: form})
-  }
+    this.setState({ form: form });
+  };
 
   render() {
     const divStyle = {
@@ -35,7 +36,12 @@ class SidebarComponent extends React.Component {
     };
     return (
       <div className="sidebar-content" style={divStyle}>
-        <form action="" onSubmit={(e) => {this.props.handleSubmit(e, this.state.form)}}>
+        <form
+          action=""
+          onSubmit={e => {
+            this.props.handleSubmit(e, this.state.form);
+          }}
+        >
           <div>
             <label htmlFor="input-date">Date to filter from</label>
             <input
@@ -47,12 +53,20 @@ class SidebarComponent extends React.Component {
           </div>
           <div>
             <label htmlFor="checkbox-air">Show air quality</label>
-            <input type="checkbox" id="checkbox-air" onChange={this.handleCheckbox} />
+            <input
+              type="checkbox"
+              id="checkbox-air"
+              onChange={this.handleCheckbox}
+            />
           </div>
           <div>
             <input type="submit" value="Apply changes to analysis" />
           </div>
         </form>
+        <MapLegend
+          sensorType={this.props.sensorType}
+          onSensorTypeChange={this.props.onSensorTypeChange}
+        />
       </div>
     );
   }

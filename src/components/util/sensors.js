@@ -3,7 +3,11 @@
  * Each sensor type must have a corresponding function for obtaining the color
  */
 export const sensorTypes = {
-  airQuality: "airQuality"
+  //airQuality: "airQuality"
+  humidity: "humidity",
+  temperature: "temperature",
+  c02: "c02",
+  voc: "voc"
 };
 
 /**
@@ -27,8 +31,55 @@ export function getColor(sensorType, value) {
  * "colors" describes which color each interval has.
  */
 export const sensorColors = {
-  airQuality: {
+  humidity: {
+    interval: [0, 20, 40, 60, 80, 100],
+    colors: ["#ccccff", "#8080ff", "#0000ff", "#0000cc", "#000080"],
+    afterLast: false,
+    beforeFirst: false
+  },
+  temperature: {
+    interval: [-20, -10, 0, 10, 20, 30, 40],
+    colors: [
+      "#ffffff",
+      "#0000ff",
+      "#8080ff",
+      "#ccccff",
+      "#ffb3b3",
+      "#ff1a1a",
+      "#cc0000",
+      "#00001a"
+    ],
+    afterLast: true,
+    beforeFirst: true
+  },
+  c02: {
+    interval: [200, 400, 600, 1000, 1600, 2600, 5000, 7000],
+    colors: [
+      "#f2ffe6",
+      "#ccff99",
+      "#00ff00",
+      "#ffff00",
+      "#ffa500",
+      "#ff9999",
+      "#ff0000",
+      "#800080",
+      "#660000"
+    ],
+    afterLast: true,
+    beforeFirst: true
+  },
+  voc: {
     interval: [0, 50, 100, 150, 200, 300],
-    colors: ["#00ff00", "#ffff00", "#ffa500", "#ff0000", "#800080", "#660000"]
+    colors: [
+      "#e6ffe6",
+      "#00ff00",
+      "#ffff00",
+      "#ffa500",
+      "#ff0000",
+      "#800080",
+      "#660000"
+    ],
+    afterLast: true,
+    beforeFirst: false
   }
 };

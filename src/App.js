@@ -9,7 +9,7 @@ class App extends Component {
     super(props);
     this.state = {
       data: [],
-      sensorType: sensorTypes.airQuality,
+      sensorType: sensorTypes.temperature,
       form: {
         date: null,
         filterAirQuality: false
@@ -27,6 +27,10 @@ class App extends Component {
       }
     );
   }
+  handleSensorTypeChange = event => {
+    const sensorType = event.target.value;
+    this.setState({ sensorType: sensorType });
+  };
 
   handleSubmit = (event, form) => {
     event.preventDefault();
@@ -36,15 +40,18 @@ class App extends Component {
   readData = layers => {
     let data = layers;
     this.setState({
-      data: data.features,
-      sensorType: sensorTypes.airQuality
+      data: data.features
     });
   };
 
   render() {
     return (
       <React.Fragment>
-        <SidebarComponent handleSubmit={this.handleSubmit} />
+        <SidebarComponent
+          handleSubmit={this.handleSubmit}
+          sensorType={this.state.sensorType}
+          onSensorTypeChange={this.handleSensorTypeChange}
+        />
         <LeafletMap data={this.state.data} sensorType={this.state.sensorType} />
       </React.Fragment>
     );
