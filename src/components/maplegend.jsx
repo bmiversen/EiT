@@ -9,7 +9,7 @@ class MapLegend extends Component {
     const intervals = [];
     //If we should have a color for values less than our smallest interval value
     if (sensorColor.beforeFirst) {
-      let intervalText = "<" + sensorInterval[0];
+      let intervalText = "< " + sensorInterval[0];
       const firstInterval = this.createInterval(
         "first",
         colors.splice(0, 1),
@@ -19,7 +19,7 @@ class MapLegend extends Component {
     }
     //Create colors for all intervals between two values
     for (let i = 0; i < sensorInterval.length - 1; i++) {
-      let intervalText = sensorInterval[i] + "-" + sensorInterval[i + 1];
+      let intervalText = sensorInterval[i] + " to " + sensorInterval[i + 1];
       const interval = this.createInterval(
         i,
         colors.splice(0, 1),
@@ -29,7 +29,7 @@ class MapLegend extends Component {
     }
     //If we should have a color for values greater than our largest interval value
     if (sensorColor.afterLast) {
-      let intervalText = sensorInterval[sensorInterval.length - 1] + "<";
+      let intervalText = sensorInterval[sensorInterval.length - 1] + " <";
       const LastInterval = this.createInterval(
         "last",
         colors.splice(0, 1),
@@ -42,7 +42,14 @@ class MapLegend extends Component {
 
   createInterval = (key, color, intervalText) => {
     return (
-      <div key={key} style={{ display: "table-row" }}>
+      <div
+        key={key}
+        style={{
+          width: "100%",
+          height: "20px",
+          marginTop: "5px"
+        }}
+      >
         <div
           style={{
             background: color,
@@ -50,7 +57,16 @@ class MapLegend extends Component {
             height: "10px"
           }}
         />
-        <span>{intervalText}</span>
+        <div
+          style={{
+            display: "inline",
+            position: "absolute",
+            marginTop: "-17px",
+            marginLeft: "15px"
+          }}
+        >
+          {intervalText}
+        </div>
       </div>
     );
   };
